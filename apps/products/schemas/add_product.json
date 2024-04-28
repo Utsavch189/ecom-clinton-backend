@@ -1,0 +1,122 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "product_name": {
+        "type": "string"
+      },
+      "product_brand": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "string"
+          },
+          "brand_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "uid",
+          "brand_name"
+        ]
+      },
+      "product_category": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "string"
+          },
+          "category_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "uid",
+          "category_name"
+        ]
+      },
+      "product_desc": {
+        "type": "string"
+      },
+      "product_price": {
+        "type": "string"
+      },
+      "product_varients": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "product_inventory": {
+                "type": "object",
+                "properties": {
+                  "quantity": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "quantity"
+                ]
+              },
+              "product_price_adjustment": {
+                "type": "integer"
+              },
+              "product_attachments": {
+                "type": "array",
+                "items": {}
+              },
+              "varient_attributes": {
+                "type": "array",
+                "items": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "option": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "option",
+                      "value"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "option": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "option",
+                      "value"
+                    ]
+                  }
+                ]
+              }
+            },
+            "required": [
+              "product_inventory",
+              "product_price_adjustment",
+              "product_attachments",
+              "varient_attributes"
+            ]
+          }
+        ]
+      }
+    },
+    "required": [
+      "product_name",
+      "product_brand",
+      "product_category",
+      "product_desc",
+      "product_price",
+      "product_varients"
+    ]
+  }
