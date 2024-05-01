@@ -43,7 +43,7 @@ class ProductSelector:
             except PageNotAnInteger:
                 products=paginator.page(1)
             except EmptyPage:
-                products=paginator.page(paginator.num_pages)
+                products=[]
 
         products=ProductOutputSerializer(instance=products,many=True).data
 

@@ -25,7 +25,7 @@ class CategorySelector:
         except PageNotAnInteger:
             categories=paginator.page(1)
         except EmptyPage:
-            categories=paginator.page(paginator.num_pages)
+            categories=[]
         return (
             {"categories":ProductCategoryOutSerializer(instance=categories,many=True).data},
             status.HTTP_200_OK
