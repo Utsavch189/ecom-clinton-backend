@@ -66,6 +66,7 @@ class UserAddress(models.Model):
 class ProductCategory(models.Model):
     uid = models.CharField(max_length=255, default=generate_id(), primary_key=True)
     category_name=models.CharField(max_length=255,db_index=True)
+    image=models.FileField(null=True,blank=True)
     created_by=models.ForeignKey(User,on_delete=models.SET_NULL,default="",null=True,blank=True,related_name="category_user")
     is_active=models.BooleanField(default=True)
     created_at=models.DateTimeField(default=timezone.now)
@@ -82,6 +83,7 @@ class ProductCategory(models.Model):
 class ProductBrand(models.Model):
     uid = models.CharField(max_length=255, default=generate_id(), primary_key=True)
     brand_name=models.CharField(max_length=255,unique=True,db_index=True)
+    image=models.FileField(null=True,blank=True)
     created_by=models.ForeignKey(User,on_delete=models.SET_NULL,default="",null=True,blank=True,related_name="brand_user")
     is_active=models.BooleanField(default=True)
     created_at=models.DateTimeField(default=timezone.now)
