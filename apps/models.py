@@ -84,6 +84,7 @@ class ProductBrand(models.Model):
     uid = models.CharField(max_length=255, default=generate_id(), primary_key=True)
     brand_name=models.CharField(max_length=255,unique=True,db_index=True)
     image=models.FileField(null=True,blank=True)
+    category=models.ForeignKey(ProductCategory,on_delete=models.CASCADE,related_name='brand_category',default="")
     created_by=models.ForeignKey(User,on_delete=models.SET_NULL,default="",null=True,blank=True,related_name="brand_user")
     is_active=models.BooleanField(default=True)
     created_at=models.DateTimeField(default=timezone.now)
