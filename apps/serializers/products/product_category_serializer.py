@@ -7,10 +7,11 @@ class ProductCategoryOutSerializer(serializers.ModelSerializer):
     varients=VariantOptionsOutSerializer(many=True,source='category_variants')
     class Meta:
         model=ProductCategory
-        fields=('uid','category_name','varients')
+        fields=('uid','category_name','image','varients')
 
 class ProductCategoryInSerializer(serializers.Serializer):
     uid=serializers.CharField(required=False)
+    image=serializers.FileField(required=False)
     category_name=serializers.CharField()
 
     def validate(self,data):
